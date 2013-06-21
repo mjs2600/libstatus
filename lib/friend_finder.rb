@@ -7,6 +7,12 @@ class FriendFinder
     end
   end
 
+  def setup
+    status = UDPServer.new nil, 8888
+
+    DNSSD.announce status, `scutil --get LocalHostName`
+  end
+
   def find_friends
   end
 
