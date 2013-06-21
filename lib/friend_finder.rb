@@ -10,7 +10,7 @@ class FriendFinder
   def setup
     status = UDPServer.new nil, 8888
 
-    DNSSD.announce status, 'My awesome Status server'
+    DNSSD.announce status, `scutil --get LocalHostName`
   end
 
   def find_friends
