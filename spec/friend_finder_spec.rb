@@ -1,4 +1,4 @@
-require 'lib/friend_finder'
+require './lib/friend_finder'
 
 describe "FriendFinder" do
   it 'should find other clients' do
