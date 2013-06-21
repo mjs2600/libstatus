@@ -26,4 +26,3 @@ DEPENDENCIES
   dnssd
   guard-rspec
   rspec
-  thor
