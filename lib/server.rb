@@ -10,9 +10,10 @@ class Server
 
   def setup
     @server = TCPServer.new @port
-    @service = DNSSD.announce @server, 'A Status server'
+    @service = DNSSD.announce @server, "A Status server at port #{@port}"
 
     client = @server.accept # Wait for a client to connect
+    puts 'Client connected.'
     client.puts "Hello! Welcome to my status server."
     client.puts "Time is #{Time.now}"
 
@@ -23,9 +24,12 @@ class Server
     end
 
     loop do
-      client.puts gets
+      msg = gets
+      break if msg.strip == 'exit'
+      client.puts msg
     end
 
     client.close
+    @server.close
   end
 end
