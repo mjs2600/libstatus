@@ -1,20 +1,30 @@
 require 'socket'
 
 class Client
+  attr_accessor :socket
 
   def initialize(host, port = 8888)
-    server = TCPsocket.new host, port
 
     Thread.start do
+      @socket = TCPSocket.new host, port
       loop do
-        puts server.gets
+        prompt
+        msg = socket.gets
+        puts "Message: #{msg}" unless msg.strip.empty?
       end
     end
 
     loop do
-      server.puts gets
+      prompt
+      msg = gets
+      break if msg.strip == 'exit'
+      socket.puts msg
     end
 
-    server.close
+    socket.close if socket
+  end
+
+  def prompt
+    print "> "
   end
 end
