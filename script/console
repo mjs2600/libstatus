@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'irb'
+require File.dirname(__FILE__) + '/../libstatus'
+IRB.start

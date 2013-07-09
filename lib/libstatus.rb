@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative './friend_finder'
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each {|file| require file }
 
 class LibStatus
   def initialize
