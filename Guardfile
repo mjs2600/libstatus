@@ -7,8 +7,8 @@ notification :tmux,
   # to customize which tmux element will change color
   :color_location => 'status-left-bg'
 
-  guard 'rspec', :version => 2 do
-    watch(%r{^spec/.+_spec\.rb$})
-    watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
-    watch('spec/spec_helper.rb')  { "spec" }
-  end
+guard 'rspec', :version => 2 do
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch('spec/spec_helper.rb')  { "spec" }
+end

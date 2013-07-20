@@ -15,6 +15,7 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    rb-fsevent (0.9.3)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -33,4 +34,5 @@ DEPENDENCIES
   dnssd
   guard-rspec
   pry
+  rb-fsevent
   rspec
