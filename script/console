@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
-require 'irb'
-require File.dirname(__FILE__) + '/../libstatus'
-IRB.start
+require 'pry'
+
+def reload!
+  Dir['./lib/*'].each { |file|
+    (require file) || (load file)
+  }
+end
+
+reload!
+
+Pry.start
