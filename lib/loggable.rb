@@ -1,4 +1,6 @@
 module Loggable
+  require 'logger'
+
   def logger
     @logger ||= setup_logger
   end
